@@ -1,4 +1,4 @@
-function createOsuFile(tp,diffname,title,mp3Name,BPM,offset)
+function createOsuFile(tp,filename,diffname,title,mp3Name,BPM,offset)
 
 BeatDivisor=4;
 SliderMultiplier=0.18;
@@ -8,7 +8,7 @@ OD=7;
 CS=4;
 HP=6;
 
-osufp=fopen('a.osu','w');
+osufp=fopen([filename,' [',diffname,'].osu'],'w');
 
 
 fprintf(osufp,'%s\r\n\r\n','osu file format v14');

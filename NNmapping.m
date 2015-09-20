@@ -1,4 +1,4 @@
-function tp=NNmapping(songfile,BPM,offset,BeatDivisor)
+function tp=NNmapping(net,songfile,BPM,offset,BeatDivisor)
 
 Naji=41;
 ajiduration=0.04; %in second
@@ -42,7 +42,14 @@ for v=1:length(tp.time)
         data=S2(:,Tind-floor(Naji/2):Tind+floor(Naji/2+0.5-1));
         aji=sum(data,1);
     end
-    Y=myNeuralNetworkFunction(aji');
+        %------divided by max volume around this time point-----
+        for g=1:length(aji)
+            ind1=max(1,g-round(timedistance*16/(1000*ajiduration)));
+            ind2=min(length(aji),g+round(timedistance*16/(1000*ajiduration)));
+            aji(g)=aji(g)/max(aji(ind1:ind2));
+        end
+        %----------------------------------------------------------
+    Y=net(aji');
     [~,objectind]=max(Y);
     tp.object(v)=objectind-1;
 end
