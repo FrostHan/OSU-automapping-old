@@ -163,14 +163,7 @@ for N=1:j %the N'th song
                 data=S2(:,Tind-floor(Naji/2):Tind+floor(Naji/2+0.5-1));
                 aji(m,:)=sum(data,1);
                 
-                %------divided by max volume around this time point-----
-                for g=1:size(aji,2)
-                    ind1=max(1,g-round(timedistance*16/(1000*ajiduration)));
-                    ind2=min(size(aji,2),g+round(timedistance*16/(1000*ajiduration)));
-                    aji(m,g)=aji(m,g)/max(aji(m,ind1:ind2));
-                end
-                %----------------------------------------------------------
-                
+
                 switch tp.object(v)
                     case 0
                         isnone(m)=1;

@@ -35,7 +35,7 @@ fprintf(osufp,'%s','TitleUnicode:');
 fprintf(osufp,'%s\r\n',title);
 fprintf(osufp,'%s\r\n','Artist:111');
 fprintf(osufp,'%s\r\n','ArtistUnicode:111');
-fprintf(osufp,'%s\r\n','Creator:frostofwinter');
+fprintf(osufp,'%s\r\n','Creator:FrOstOfWinTer');
 fprintf(osufp,'%s\r\n',['Version:',num2str(diffname)]);
 fprintf(osufp,'%s\r\n','Source:');
 fprintf(osufp,'%s\r\n','Tags:');
