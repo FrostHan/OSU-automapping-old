@@ -127,7 +127,7 @@ for N=1:j %the N'th song
                     sliderlength=str2double(tline(p(7)+1:end));
                  end
                     sliderspeed=GetSliderSpeed( time1, osufile );
-                 time2=sliderspeed*sliderlength*timedistance+time1;
+                 time2=sliderspeed*sliderlength*timedistance*BeatDivisor+time1;%slidertail time
              end
              
              if ~isempty(strfind(tline,'|'))&&RN==1 %slider
